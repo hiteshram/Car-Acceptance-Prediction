@@ -21,17 +21,12 @@ def datatranslation(self, car_dataset):
     value = int(value[1:])
     year = int(input("Enter car purchase year: "))
     period = c_year - year
-    print(value)
     if (period <= 1):
         car_value_after_n_yers = value * (1 - (20/100))
-        print(car_value_after_n_yers)
     elif (period > 1):
         car_value_after_n_yers = value * (1 - (20 / 100))
-        print(car_value_after_n_yers)
         n = period - 1
-        print(n)
         car_value_after_n_yers = car_value_after_n_yers * ((1 - (10 / 100)) ** n)
-        print(car_value_after_n_yers)
     else:
         return None
     ## Comparing the Given Input Amount and Obtained actual ammount of car ##
@@ -42,20 +37,20 @@ def datatranslation(self, car_dataset):
         try:
             #print("Low",(abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50) :
-                print("Very Low")
+                return "Very Low"
             elif(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)  >=10) and (((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) <= 100) :
-                print("Low")
+                return "Low"
             else:
-                print("Med")
+                return "Med"
         except ZeroDivisionError:
             return float('inf')
     elif (given_value > car_value_after_n_yers):
         try:
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50):
-                print("Very High")
+                return "Very High"
             elif(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)  >=10) and (((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) <= 100) :
-                print("High")
+                return "High"
             else:
-                print("Med")
+                return "Med"
         except ZeroDivisionError:
             return float('inf')
