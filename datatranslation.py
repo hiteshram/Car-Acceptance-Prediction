@@ -1,15 +1,10 @@
-def datatranslation(self, car_dataset):
+def datatranslation(self, car_full_data):
 
-    import numpy as np
     import pandas as pd
     import datetime
-    pd.options.display.max_columns = None
-    pd.options.display.width = None
-
-    #pd.options.display.max_rows = None
     ## CODE STARTS HERE ##
 
-    gdata = self.car_dataset
+    gdata = self.car_full_data
     x = datetime.datetime.now()
     c_year = x.year
     #y = gdata["Year"].apply(lambda y: c_year - y)
@@ -23,6 +18,7 @@ def datatranslation(self, car_dataset):
     period = c_year - year
     if (period <= 1):
         car_value_after_n_yers = value * (1 - (20/100))
+
     elif (period > 1):
         car_value_after_n_yers = value * (1 - (20 / 100))
         n = period - 1
@@ -37,20 +33,21 @@ def datatranslation(self, car_dataset):
         try:
             #print("Low",(abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50) :
-                return "Very Low"
+                return "low"
             elif(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)  >=10) and (((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) <= 100) :
-                return "Low"
+                return "low"
             else:
-                return "Med"
+                return "med"
         except ZeroDivisionError:
             return float('inf')
     elif (given_value > car_value_after_n_yers):
         try:
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50):
-                return "Very High"
+                return "vhigh"
             elif(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)  >=10) and (((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) <= 100) :
-                return "High"
+                return "high"
             else:
-                return "Med"
+                return "med"
         except ZeroDivisionError:
             return float('inf')
+        
