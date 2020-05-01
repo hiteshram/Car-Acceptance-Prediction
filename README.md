@@ -6,7 +6,4 @@ Make, model and price of cars and sevreal other attributes are considered to pre
 
 # Dataset
 Car.csv and car_data are the datasets that we are going to train our model. 
-  ### 1. Car Data 
-  car 
-
-
+  #### 1. Car Data. >sjcns
