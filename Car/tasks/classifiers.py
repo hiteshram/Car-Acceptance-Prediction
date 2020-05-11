@@ -1,4 +1,5 @@
 def classifiers(self,integer_data):
+    import matplotlib.pyplot as plt
     gdata = integer_data
     X_gdata = gdata.drop(columns='prediction')
     Y_gdata = gdata['prediction']
@@ -7,11 +8,11 @@ def classifiers(self,integer_data):
     SVM_Accuracy = SVM(X_gdata,Y_gdata)
     DTree_Accuracy = DTree(X_gdata,Y_gdata)
     RF_Accuracy = RF(X_gdata,Y_gdata)
-    print("knn Accuracy is: ",knn_Accuracy)
-    print("NB_Accuarcy is : ",NB_Accuarcy)
-    print("SVM_Accuracy is ",SVM_Accuracy)
-    print("DTree_Accuracy is : ",DTree_Accuracy)
-    print("RF_Accuracy is :",RF_Accuracy)
+    Accuracy_list = [knn_Accuracy,NB_Accuarcy,SVM_Accuracy,DTree_Accuracy,RF_Accuracy]
+    Accuracy_list_names = ['KNN','NB','SVM','DT','RF']
+    plt.bar(Accuracy_list_names,Accuracy_list,width=0.3)
+    plt.show()
+
 
     # return (knn_Accuracy,NB_Accuarcy,SVM_Accuracy,DTree_Accuracy)
 
@@ -33,8 +34,6 @@ def KNN(X_gdata,Y_gdata):
         pred = knn.predict(X_gdata)
         mean_error = mean_squared_error(y_gdata_prediction, pred)
         rmse.append(sqrt(mean_error))
-        # print('K value', k, 'rmse', sqrt(mean_squared_error(y_gdata_prediction, pred)))
-
     knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(X_train, Y_train)
     knn_y_pred = knn.predict(X_test)
@@ -72,14 +71,10 @@ def DTree(X_gdata,Y_gdata):
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.metrics import accuracy_score
     (X_train, X_test, Y_train, Y_test) = train_test_split(X_gdata, Y_gdata, test_size=0.2)
-    print(X_test)
     decision_t = DecisionTreeClassifier()
     decision_t.fit(X_train,Y_train)
     y_pred = decision_t.predict(X_test)
-    prediction = decision_t.predict([[3,3,2,1,1,2]])
     Accuracy = accuracy_score(Y_test, y_pred)
-
-    print(prediction)
     return Accuracy
 
 def RF(X_gdata,Y_gdata):
