@@ -1,6 +1,5 @@
 def prediction(self,car_full_data,integer_data):
     (buying, maint, doors, persons, lug_boot, safety) = self.input_(car_full_data)
-    # print(buying, maint, doors, persons, lug_boot, safety)
     gdata = integer_data
     X_gdata = gdata.drop(columns='prediction')
     Y_gdata = gdata['prediction']
