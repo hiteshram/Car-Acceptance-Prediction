@@ -13,9 +13,6 @@ def classifiers(self,integer_data):
     plt.bar(Accuracy_list_names,Accuracy_list,width=0.3)
     plt.show()
 
-
-    # return (knn_Accuracy,NB_Accuarcy,SVM_Accuracy,DTree_Accuracy)
-
 def KNN(X_gdata,Y_gdata):
     from sklearn.model_selection import train_test_split
     from sklearn.preprocessing import LabelEncoder
@@ -34,6 +31,7 @@ def KNN(X_gdata,Y_gdata):
         pred = knn.predict(X_gdata)
         mean_error = mean_squared_error(y_gdata_prediction, pred)
         rmse.append(sqrt(mean_error))
+        
     knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(X_train, Y_train)
     knn_y_pred = knn.predict(X_test)
