@@ -1,7 +1,17 @@
 from Car.tasks.datatranslation import datatranslation
 
 def input_(self, car_full_data):
-
+#     buying = datatranslation(self, car_full_data)
+#     print("Enter Maintainence in terms {low, med, high, vhigh} : ")
+#     maint = input()
+#     print("Enter number of doors in numbers of {2,3,4 and 5more} : ")
+#     doors = input()
+#     print("Enter number of persons can fit in the car in {2,4,more}: ")
+#     persons = input()
+#     print("Enter the lagguage boot available in terms of {small,med,big}: ")
+#     lug_boot = input()
+#     print("Enter the car safety in terms of {low,med,high}: ")
+#     safety = input()
     buying = datatranslation(self, car_full_data)
     maint = input("Enter Maintainence in terms {low, med, high, vhigh} : ")
     doors = input("Enter number of doors in numbers of {2,3,4 and 5more} : ")
