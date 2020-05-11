@@ -4,7 +4,6 @@ def convert_car_data(self, car_full_data):
     pd.options.display.width = None
     pd.options.display.max_rows = None
 
-    # from sklearn.preprocessing import LabelEncoder
     gdata = car_full_data
     gdata = pd.DataFrame(gdata)
     gdata.rename(columns={0: 'buying', 1: 'maint', 2: 'doors', 3: 'persons', 4: 'lug_boot', 5: 'safety', 6: 'prediction'}, inplace=True)
