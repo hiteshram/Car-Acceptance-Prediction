@@ -31,6 +31,8 @@ def datatranslation(self, car_full_data):
         return "Accepted"
     elif(given_value < car_value_after_n_yers):
         try:
+#             print("The Value of the car user wish to sell is: ", given_value, )
+#             print("The Actual car value after N  year is: ", car_value_after_n_yers)
             #print("Low",(abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50) :
                 return "low"
@@ -42,6 +44,8 @@ def datatranslation(self, car_full_data):
             return float('inf')
     elif (given_value > car_value_after_n_yers):
         try:
+#             print("The Value of the car user wish to sell is: ", given_value, )
+#             print("The Actual car value after N  year is: ", car_value_after_n_yers)
             if(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) >= 50):
                 return "vhigh"
             elif(((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0)  >=10) and (((abs(given_value - car_value_after_n_yers) / car_value_after_n_yers) * 100.0) <= 100) :
