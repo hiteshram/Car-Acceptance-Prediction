@@ -1,5 +1,6 @@
 def datatranslation(self, car_full_data):
-
+## Finding the rate of depreciation of car and converting the amount entered by the customer to categorical data ##
+## Rate of depreciation 20% for 1st year and 10% followed by each year ##
     import pandas as pd
     import datetime
     gdata = self.car_full_data      ## Getting Car data into gdata##
