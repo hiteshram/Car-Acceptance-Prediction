@@ -1,4 +1,5 @@
 def prediction(self,car_full_data,integer_data):
+    ## Training and predicting the target for the specification provided by the customer and decision based on the inputs provided##
     (buying, maint, doors, persons, lug_boot, safety) = self.input_(car_full_data)   ##Getting the car specifications from input function and used them for prediction##
     gdata = integer_data  ##Training the model, integer data is used##
     X_gdata = gdata.drop(columns='prediction') ## Dividing for training and testing ##
