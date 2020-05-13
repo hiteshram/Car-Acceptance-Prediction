@@ -1,6 +1,10 @@
 from Car.tasks.datatranslation import datatranslation  ##Calling the datatranslation function to get the buying price in categorical which is entered as integer##
 
 def input_(self, car_full_data):
+    ## Getting input from the customer and asking some specific details that will allow us to predict whether it can be accepted or not.##
+    ## Changing categorical to Integer data, using the unique values from convert_car_data function where orginall data is converted to integer ##
+    ## So when encoded fro each value, those same values are used and assigned here to the categorical data##
+  
 #     buying = datatranslation(self, car_full_data)
 #     print("Enter Maintainence in terms {low, med, high, vhigh} : ")
 #     maint = input()
