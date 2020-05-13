@@ -12,13 +12,16 @@ def input_(self, car_full_data):
 #     lug_boot = input()
 #     print("Enter the car safety in terms of {low,med,high}: ")
 #     safety = input()
-    buying = datatranslation(self, car_full_data)
-    maint = input("Enter Maintainence in terms {low, med, high, vhigh} : ")
-    doors = input("Enter number of doors in numbers of {2,3,4 and 5more} : ")
-    persons = input("Enter number of persons can fit in the car in {2,4,more}: ")
-    lug_boot = input("Enter the lagguage boot available in terms of {small,med,big}: ")
-    safety = input("Enter the car safety in terms of {low,med,high}: ")
-    if buying == 'vhigh':
+    buying = datatranslation(self, car_full_data)  ##Getting categorical value from the data translation part ##
+    maint = input("Enter Maintainence in terms {low, med, high, vhigh} : ") ##Asking user to input car specifications##
+    doors = input("Enter number of doors in numbers of {2,3,4 and 5more} : ") ##Asking user to input car specifications##
+    persons = input("Enter number of persons can fit in the car in {2,4,more}: ") ##Asking user to input car specifications##
+    lug_boot = input("Enter the lagguage boot available in terms of {small,med,big}: ") ##Asking user to input car specifications##
+    safety = input("Enter the car safety in terms of {low,med,high}: ") ##Asking user to input car specifications##
+    
+    ##Manually changing them to integer from categorical ##
+    ##After encoding using the unique values of each value is known and assigned them accordingly##
+    if buying == 'vhigh':   ##Manually changing them to integer from categorical ##
         buying = 0
     elif buying == 'high':
         buying = 1
@@ -70,4 +73,4 @@ def input_(self, car_full_data):
     else:
         print("Invalid")
 
-    return (buying,maint,doors,persons,lug_boot,safety)
+    return (buying,maint,doors,persons,lug_boot,safety)  #Returning the input data which customer specified catgeorical data,which that is converted into integer##
