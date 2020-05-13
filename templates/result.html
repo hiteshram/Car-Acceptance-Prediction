@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin:0px;
+}
+
+/* Style the header */
+header {
+  background-color: #073971;
+  padding: 15px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+
+}
+
+header p{
+    margin:0px;
+    font-size:35px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+section p{
+    font-size:20px;
+}
+
+section table{
+    margin-left:150px;
+}
+
+footer {
+  background-color: #073971;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  margin-top:140px;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+    <title>Car Accpetance Wizard</title>
+<body>
+<header>
+  <p>Car Acceptance Prediction</p>
+</header>
+
+<section>
+<br>
+  <center>
+    <div class="result" align="center">
+            {% if result %}
+                {% for variable, value in original_input.items() %}
+                    <b>{{ variable }}</b> : {{ value }}
+                {% endfor %}
+                <br>
+                <br> Predicted number of bikes in use:
+                   <p style="font-size:50px">{{ result }}</p>
+            {% endif %}
+        </div>
+    </center>        
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+
+</html>

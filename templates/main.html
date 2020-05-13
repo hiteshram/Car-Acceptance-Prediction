@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin:0px;
+}
+
+/* Style the header */
+header {
+  background-color: #073971;
+  padding: 15px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+
+}
+
+header p{
+    margin:0px;
+    font-size:35px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+section p{
+    font-size:20px;
+}
+
+section table{
+    margin-left:150px;
+}
+
+footer {
+  background-color: #073971;
+  padding: 2px;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  /*margin-top:100px;*/
+  height:60px;
+}
+
+a{
+    color:white;
+}
+
+.result{
+    display:block;
+    width:100%;
+    height:150px;
+    
+}
+
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+    <title>Car Accpetance Wizard</title>
+<body>
+<header>
+  <p>Car Acceptance Prediction</p>
+</header>
+
+<section>
+<br>
+  <center>
+  <p>Enter Car Details</p>
+   <br>
+              <form action="{{ url_for('main') }}" method="POST" enctype="multipart/form-data">        
+                <table>
+                    <tr><td>Make:</td><td><select name="Make">
+                                            <option value="Acura">Acura</option>
+                                            <option value="Audi">Audi</option>
+                                            <option value="BMW">BMW</option>
+                                            <option value="Buick">Buick</option>
+                                            <option value="Cadillac">Cadillac</option>
+                                            <option value="Chevrolet">Chevrolet</option>
+                                            <option value="Chrysler">Chrysler</option>
+                                            <option value="Dodge">Dodge</option>
+                                            <option value="Ford">Ford</option>
+                                            <option value="GMC">GMC</option>
+                                         </select></td></tr>
+                    <tr><td>Model:</td><td><select name="Model">
+                                            <option value="MDX">MDX</option>
+                                            <option value="A4 1.8T 4dr">A4 1.8T 4dr</option>
+                                            <option value="X3 3.0i">X3 3.0i</option>
+                                            <option value="Rainier">Rainier</option>
+                                            <option value="Escalade">Escalade</option>
+                                            <option value="Suburban 1500 LT">Suburban 1500 LT</option>
+                                            <option value="PT Cruiser 4dr">PT Cruiser 4dr</option>
+                                            <option value="Durango SLT">Durango SLT</option>
+                                            <option value="Excursion 6.8 XLT">Excursion 6.8 XLT</option>
+                                            <option value="Envoy XUV SLE">Envoy XUV SLE</option>
+                                            </select></td></tr>
+                    <tr><td>Purchase Year:</td><td><input name="Purchase_Year" type="number" required></td></tr>
+                    <tr><td>Selling Amount:</td><td><input name="Selling_Amount" type="number" required></td></tr>
+                    <tr><td>Maintenance (ann.):</td><td><select name="Maintenance">
+                                                    <option value="low">Low ($0 - $200)</option>
+                                                    <option value="med">Medium ($201 - $400)</option>
+                                                    <option value="high">High ($401 - $600)</option>
+                                                    <option value="v-high">Very High ($601 and above)</option>
+                                                </select></td></tr>
+                    <tr><td>Doors:</td><td><select name="Doors">
+                                                    <option value="5more">5-more</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                </select></td></tr>
+                    <tr><td>Persons:</td><td><select name="Persons">
+                                                    <option value="more">5-more</option>
+                                                    <option value="4">4</option>
+                                                    <option value="2">2</option>
+                                                </select></td></tr>
+                    <tr><td>Lugguage Boot:</td><td><select name="Lugguage">
+                                                    <option value="small">Small</option>
+                                                    <option value="med">Medium</option>
+                                                    <option value="big">Big</option>
+                                                </select></td></tr>
+                    <tr><td>Safety:</td><td><select name="Safety">
+                                                    <option value="low">Low</option>
+                                                    <option value="med">Medium</option>
+                                                    <option value="high">High</option>
+                                                    </select></td></tr>
+                    <tr><td>License Plate Number:</td><td><input type="text" name="car-license-number"></td></tr>
+                    <tr><td>Car Image:</td><td><input type="file" name="car-license-plate-img"></td></tr>
+                    <tr><td>Customer's Picture:</td><td><input type="file" name="customer-img"></td></tr>
+                </table>
+                <br><br>
+                <input type="submit">
+            </form>
+            
+            <div class="result" align="center">
+            <br>
+            
+            {% if result %}
+                {% for variable, value in original_input.items() %}
+                    <b>{{ variable }}</b> : {{ value }}<br>
+                {% endfor %}
+                
+                <!--
+                <br>
+                <br> Predicted number of bikes in use:
+                   <p style="font-size:50px">{{ result }}</p>
+                -->
+            {% endif %}
+            <br>
+        </div>
+    </center>
+
+        
+</section>
+
+<footer>
+  <p>
+      Project submitted as part of Machine Learning course requirement by Team 20
+      <br>
+      please reach out to <a href="mailto:hiteshram.kotha@ucdenver.edu"><i>Hitesh</i></a>, <a href="mailto:raghuveerareddy.malreddy@ucdenver.edu"><i>Raghu</i></a>, <a href="mailto:vyshnavi.sankenani@ucdenver.edu"><i>Vyshnavi</i></a>.  
+  </p>
+</footer>
+
+</body>
+
+</html>
