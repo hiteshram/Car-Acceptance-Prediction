@@ -1,4 +1,4 @@
-from Car.tasks.datatranslation import datatranslation
+from Car.tasks.datatranslation import datatranslation  ##Calling the datatranslation function to get the buying price in categorical which is entered as integer##
 
 def input_(self, car_full_data):
 #     buying = datatranslation(self, car_full_data)
