@@ -1,18 +1,26 @@
 def classifiers(self,integer_data):
+    ## A one classifier funtion that class functions like KNN, Naive Bayern, SVM, Decision Tree, Random Forest. ##
+    ## Each function is trained and then calculating and plotting the Accuarcy here ##
+    ## Verifying the each classifier for prediction ##
     import matplotlib.pyplot as plt
     gdata = integer_data
     X_gdata = gdata.drop(columns='prediction')
     Y_gdata = gdata['prediction']
+    ## Data divided for fro traing and testing data ##
+    ##Sending to the various classifiers ##
     knn_Accuracy = KNN(X_gdata,Y_gdata)
     NB_Accuarcy = NB(X_gdata,Y_gdata)
     SVM_Accuracy = SVM(X_gdata,Y_gdata)
     DTree_Accuracy = DTree(X_gdata,Y_gdata)
     RF_Accuracy = RF(X_gdata,Y_gdata)
-    Accuracy_list = [knn_Accuracy,NB_Accuarcy,SVM_Accuracy,DTree_Accuracy,RF_Accuracy]
-    Accuracy_list_names = ['KNN','NB','SVM','DT','RF']
-    plt.bar(Accuracy_list_names,Accuracy_list,width=0.3)
+    Accuracy_list = [knn_Accuracy,NB_Accuarcy,SVM_Accuracy,DTree_Accuracy,RF_Accuracy] ##Storing all accuracies ##
+    Accuracy_list_names = ['KNN','NB','SVM','DT','RF'] 
+    plt.bar(Accuracy_list_names,Accuracy_list,width=0.3) ##Plotting bar graph ##
     plt.show()
 
+    ## classifier, here it is being dividing the data for testing(20%) and training (80%) ##
+    ## Trying to claclulate the accuaracy ##
+    ## Returning accuarcy from the each classifier funtion and will try to evaluate one best classifier for prediction ##
 def KNN(X_gdata,Y_gdata):
     from sklearn.model_selection import train_test_split
     from sklearn.preprocessing import LabelEncoder
@@ -85,4 +93,4 @@ def RF(X_gdata,Y_gdata):
     y_pred = random_f.predict(X_test)
     Accuracy = accuracy_score(Y_test,y_pred)
 
-    return Accuracy
+    return Accuracy 
