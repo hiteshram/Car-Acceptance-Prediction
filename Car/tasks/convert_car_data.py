@@ -1,5 +1,5 @@
 def convert_car_data(self, car_full_data):
-    
+    #Converting categorical data to inetegr data (encoding) using pandas factorize ##
     ##Encoding the car data from categorical to integer ##
     import pandas as pd
     pd.options.display.max_columns = None
